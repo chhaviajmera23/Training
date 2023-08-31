@@ -1,0 +1,6 @@
+﻿~~~~~~~~~~~~~~~~~~~CUSTOME BILLING SYSTSEM~~~~~~~~~~~~~~~
+TO ADD NEW CUSTOMER -------->PRESS N
+TO UPDATE CUSTOMER ------->PRESS U
+TO DELETE CUSTOMER ------>PRESS D
+TO FIND CUSTOMER  -------->PRESS F
+PS: ANY OTHER KEY IMPLIES TO EXITG...........................
