@@ -1,0 +1,277 @@
+body, h1, h2, p, ul, li, input, select, button {
+
+    margin: 0;
+ 
+    padding: 0;
+ 
+    border: none;
+ 
+    outline: none;
+ 
+ }
+ 
+  
+ 
+ /* Apply a background color to the entire page */
+ 
+ body {
+ 
+    font-family: Arial, sans-serif;
+ 
+    background-color: #f5f5f5;
+ 
+    color: #333;
+ 
+ }
+ 
+  
+ 
+ /* Style the header */
+ 
+ h1 {
+ 
+    text-align: center;
+ 
+    background-color: #333;
+ 
+    color: #fff;
+ 
+    padding: 20px 0;
+ 
+    font-size: 36px;
+ 
+ }
+ 
+  
+ 
+ /* Style the navigation menu */
+ 
+ nav {
+ 
+    background-color: #333;
+ 
+    text-align: center;
+ 
+    padding: 10px 0;
+ 
+ }
+ 
+  
+ 
+ nav ul {
+ 
+    list-style-type: none;
+ 
+ }
+ 
+  
+ 
+ nav li {
+ 
+    display: inline;
+ 
+    margin: 0 20px;
+ 
+ }
+ 
+  
+ 
+ nav a {
+ 
+    text-decoration: none;
+ 
+    color: #fff;
+ 
+    font-size: 18px;
+ 
+    transition: color 0.3s;
+ 
+ }
+ 
+  
+ 
+ nav a:hover {
+ 
+    color: #FFD700; /* Change color on hover */
+ 
+ }
+ 
+  
+ 
+ /* Style the main content sections */
+ 
+ div {
+ 
+    background-color: #fff;
+ 
+    padding: 20px;
+ 
+    margin: 20px auto;
+ 
+    border-radius: 5px;
+ 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ 
+    max-width: 800px;
+ 
+ }
+ 
+  
+ 
+ h2 {
+ 
+    color: #333;
+ 
+    font-size: 24px;
+ 
+    margin-bottom: 20px;
+ 
+ }
+ 
+  
+ 
+ /* Style the table */
+ 
+ table {
+ 
+    width: 100%;
+ 
+    border-collapse: collapse;
+ 
+    margin-top: 20px;
+ 
+ }
+ 
+  
+ 
+ table, th, td {
+ 
+    border: 1px solid #ddd;
+ 
+ }
+ 
+  
+ 
+ th, td {
+ 
+    padding: 12px;
+ 
+    text-align: left;
+ 
+ }
+ 
+  
+ 
+ th {
+ 
+    background-color: #333;
+ 
+    color: #fff;
+ 
+ }
+ 
+  
+ 
+ /* Style form elements */
+ 
+ input[type="text"],
+ 
+ input[type="date"],
+ 
+ select,
+ 
+ button {
+ 
+    width: 100%;
+ 
+    padding: 10px;
+ 
+    margin-bottom: 20px;
+ 
+    border: 1px solid #ccc;
+ 
+    border-radius: 5px;
+ 
+    font-size: 16px;
+ 
+ }
+ 
+  
+ 
+ select {
+ 
+    appearance: none;
+ 
+    -webkit-appearance: none;
+ 
+    -moz-appearance: none;
+ 
+    background: url('down-arrow.png') no-repeat right;
+ 
+    background-size: 16px;
+ 
+    padding-right: 30px;
+ 
+ }
+ 
+  
+ 
+ /* Style the "Make Entry" button */
+ 
+ button {
+ 
+    background-color: #333;
+ 
+    color: #fff;
+ 
+    border: none;
+ 
+    border-radius: 5px;
+ 
+    cursor: pointer;
+ 
+    font-size: 18px;
+ 
+    transition: background-color 0.3s;
+ 
+ }
+ 
+  
+ 
+ button:hover {
+ 
+    background-color: #FFD700; /* Change color on hover */
+ 
+ }
+ 
+  
+ 
+ /* Style the "About Us" section */
+ 
+ .about {
+ 
+    text-align: center;
+ 
+    font-size: 18px;
+ 
+    line-height: 1.5;
+ 
+    margin-top: 40px;
+ 
+ }
+ 
+  
+ 
+ /* Style the total toll amount */
+ 
+ #amount {
+ 
+    font-weight: bold;
+ 
+    font-size: 24px;
+ 
+    margin-top: 20px;
+ 
+    color: #333;
+ 
+ }

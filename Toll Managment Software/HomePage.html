@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Navayuga Infrastructure</title>
+
+     <link rel="stylesheet" href="Style.css"> 
+
+    <script src="jquery.min.js"></script>
+
+    <script src="main.js"></script>
+
+    <script>
+      const toll = new TollPlaza();
+
+      function populate(records) {
+        $("table").find("tr:gt(0)").remove();
+
+        for (const rec of records) {
+          const tr = `<tr><td>${rec.vnumber}</td>
+
+                                <td>${rec.category}</td>
+
+                                <td>${rec.date}</td>
+
+                                <td>${rec.amount}</td>
+
+                            </tr>`;
+
+          $("table").append(tr);
+        }
+
+        var amount = findTotalToll(records);
+
+        document.getElementById("amount").innerHTML = "";
+
+        $("#amount").append(amount);
+      }
+
+      function onAddFeature() {
+        const vnumber = $("#txtId").val();
+
+        const category = $("#slCategory").val();
+
+        const date = new Date($("#txtDate").val());
+
+        const amount = toll.findAmount(category);
+
+        const vehicle = new Vehicle(vnumber, category, date, amount);
+
+        toll.addNewEntry(vehicle);
+
+        alert(
+          " Toll Amount is: " +
+            amount +
+            "\nEntry is done!! .. "
+        );
+
+        $("div").fadeOut(1000);
+
+        $("div:first").fadeIn(200);
+
+        populate(toll.getAllVehicles());
+      }
+
+      function findTotalToll(records) {
+        var amt = 0;
+
+        for (const rec of records) amt = amt + rec.amount;
+
+        return amt;
+      }
+
+      function getVehiclesById() {
+        var vnumber = prompt("Enter Vehicle no to search");
+
+        let records = toll.findVehiclesById(vnumber.toLowerCase());
+
+        populate(records);
+      }
+
+      function getVehiclesByDate() {
+        var datenow = prompt("Enter the date to see total amount collected");
+
+        let records = toll.findVehiclesByDate(new Date(datenow));
+
+        populate(records);
+      }
+
+      function getVehiclesByCategory() {
+        var cats = prompt("Enter the category to see amount collected");
+
+        let records = toll.findVehiclesByCategory(cats.toLowerCase());
+
+        populate(records);
+      }
+
+      const eventMapping = () => {
+        $("div").fadeOut(1);
+
+        $("li>a:first").click(() => {
+          $("div").fadeOut(1000);
+
+          $("div:eq(1)").fadeIn(1000);
+
+          populate(toll.getAllVehicles());
+        });
+
+        $("li>a:eq(1)").click(() => {
+          $("div").fadeOut(1000);
+
+          $("div:first").fadeIn(1000);
+
+          populate(toll.getAllVehicles());
+        });
+
+        $("li>a:eq(2)").click(() => {
+          $("div").fadeOut(1000);
+
+          $("div:first").fadeIn(1000);
+
+          getVehiclesByDate();
+        });
+
+        $("li>a:eq(3)").click(() => {
+          $("div").fadeOut(1000);
+
+          $("div:first").fadeIn(1000);
+
+          getVehiclesByCategory();
+        });
+
+        $("li>a:eq(4)").click(() => {
+          $("div").fadeOut(1000);
+
+          $("div:first").fadeIn(1000);
+
+          getVehiclesById();
+        });
+
+        $("li>a:last").click(() => {
+          $("div").fadeOut(1000);
+
+          $("div:last").fadeIn(1000);
+        });
+
+        $("button:first").click(onAddFeature);
+      };
+
+      $().ready(() => {
+        eventMapping();
+      });
+    </script>
+  </head>
+
+  <body>
+    <h1>Navayuga Infrastructure</h1>
+
+    <hr />
+
+    <nav>
+      <ul style="list-style-type: none">
+        <li><a href="#">Add New Entry</a></li>
+
+        <li><a href="#"> Statistics</a></li>
+
+        <li><a href="#">Search By Date</a></li>
+
+        <li><a href="#">Search By Category</a></li>
+
+        <li><a href="#">Search By Vehicle Number</a></li>
+
+        <li><a href="#">About Us</a></li>
+      </ul>
+    </nav>
+
+    <hr />
+
+    <div>
+      <h2>List Of Vehicles</h2>
+
+      <table border="1">
+        <tr>
+          <th>Number:</th>
+
+          <th> Category</th>
+
+          <th>Entry Date</th>
+
+          <th>Amount</th>
+        </tr>
+      </table>
+
+      <p>The total amount collected  is</p>
+
+      <p id="amount"></p>
+    </div>
+
+    <div>
+      <h2>Add New Entry</h2>
+
+      <hr />
+
+      <section>
+        <p>Enter The Vehicle Number : <input type="text" id="txtId" /></p>
+
+        <p>
+          Select the Category:
+
+          <select id="slCategory">
+            <option value="Bike">Bike</option>
+
+            <option value="LMV">LMV</option>
+
+            <option value="HMV">HMV</option>
+
+            <option value="Heavy Truck">Heavy Truck</option>
+          </select>
+        </p>
+
+        <p>Enter the Date: <input type="date" id="txtDate" /></p>
+
+        <p>
+          <button>Add Details</button>
+        </p>
+      </section>
+    </div>
+
+    <div>
+      <h1>About Us</h1>
+
+      <p>
+        NAVAYUGA INFRASTRUCTURE is a software solution that enables efficient
+        and transparent toll collection and management for highway projects.
+      </p>
+      <p>
+        It is multi module based application with hardware integration. Toll Management System is an enterprise level software application used in highway toll plaza’s to maintain huge amount of cash transactions, non-cash transactions, Exempt vehicle transactions, violation transactions and convoy vehicle transactions with high securities and data management process. 
+      </p>
+    </div>
+  </body>
+</html>
